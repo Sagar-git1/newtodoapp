@@ -24,12 +24,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: react-app
+  name: app1-nginx-clusterip-service
+  labels:
+    app: react-app
 spec:
+  type: LoadBalancer
   selector:
     app: react-app
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 3000
-      type: LoadBalancer
+    - port: 80
+      targetPort: 80
